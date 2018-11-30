@@ -34,9 +34,8 @@ public class Registration extends BaseTest {
 		registration.fillForm(username, email, password);
 		registration.clickApply();
 		
-		// TODO Add result to json expected results
 		Assert.assertEquals(registration.registrationConfirmation(), 
-				"User has been registered successfully");
+				Utils.getStringFromJson("registration", "successMessage", "expectedData"));
 		
 		registration.clickGoToLoginPage();
 	}

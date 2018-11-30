@@ -29,4 +29,8 @@ public class Navigation {
 		PageFactory.initElements(driver, this);
 	}
 	
+	public void getIntoLanguages() {
+		languagesEl.click();
+	}
+	
 }
