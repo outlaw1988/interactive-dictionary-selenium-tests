@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.interactive.dictionary.utils.ReadConfig;
-
 public class LoginPage {
 
 	private WebDriver driver;
@@ -20,22 +18,27 @@ public class LoginPage {
 	@FindBy(id = "sign-in")
 	private WebElement signinEl;
 	
+	@FindBy(id = "sign-up")
+	private WebElement signupEl;
+	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
-		System.out.println("Constructor called...");
 		PageFactory.initElements(driver, this);
-		
 	}
 	
-	public void enterPage() {
-		this.driver.get(ReadConfig.getProperty("url"));
+	public void enterPage(String url) {
+		this.driver.get(url);
 	}
 	
-	public void login() {
-		usernameEl.sendKeys(ReadConfig.getProperty("username"));
-		passwordEl.sendKeys(ReadConfig.getProperty("password"));
+	public void login(String username, String password) {
+		usernameEl.sendKeys(username);
+		passwordEl.sendKeys(password);
 		
 		signinEl.click();
+	}
+	
+	public void clickSignUp() {
+		signupEl.click();
 	}
 	
 }

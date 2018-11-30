@@ -8,14 +8,17 @@ import com.interactive.dictionary.utils.ReadConfig;
 
 public class BaseTest {
 	
-	protected WebDriver driver;
+	public static WebDriver driver;
+	public static String username;
+	public static String email;
+	public static String password;
 	
 	@BeforeSuite
-	public void setup() {
+	public void setupBefore() {
 		System.setProperty("webdriver.gecko.driver", ReadConfig.getProperty("firefoxDriver"));
 		
-		this.driver = new FirefoxDriver();
-		this.driver.manage().window().maximize();
+		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
 	}
 
 }
