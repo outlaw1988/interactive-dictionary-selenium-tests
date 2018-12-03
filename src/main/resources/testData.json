@@ -1,6 +1,9 @@
 {
 	"MainFlow1": {
 		"language1": "Polish",
-		"language2": "English"
+		"language2": "English",
+		"categoryName": "Music",
+		"defaultTargetSide": "right",
+		"defaultCountdownDuration": "10"
 	}
 }

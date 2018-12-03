@@ -33,4 +33,8 @@ public class Navigation {
 		languagesEl.click();
 	}
 	
+	public void getIntoCategories() {
+		categoriesEl.click();
+	}
+	
 }

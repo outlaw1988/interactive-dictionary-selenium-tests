@@ -14,6 +14,9 @@ public class CategoriesPage {
 	@FindBy(xpath = confirmElXpath)
 	private WebElement confirmEl;
 	
+	@FindBy(id = "add-category")
+	private WebElement addCategoryEl;
+	
 	public CategoriesPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -21,6 +24,20 @@ public class CategoriesPage {
 	
 	public boolean checkConfirmEl() {
 		return driver.findElements(By.xpath(confirmElXpath)).size() > 0;
+	}
+	
+	public void clickAddCategory() {
+		addCategoryEl.click();
+	}
+	
+	public boolean checkSetExist(String name) {
+		String xpath = "//a[contains(text(),'" + name + "')]";
+		return driver.findElements(By.xpath(xpath)).size() > 0;
+	}
+	
+	public void clickBox(String categoryName) {
+		String xpath = "//a[contains(text(),'" + categoryName + "')]";
+		driver.findElement(By.xpath(xpath)).click();
 	}
 	
 }

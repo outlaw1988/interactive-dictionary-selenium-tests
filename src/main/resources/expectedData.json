@@ -1,5 +1,11 @@
 {
 	"registration": {
 		"successMessage": "User has been registered successfully"
+	},
+	
+	"MainFlow1": {
+		"language1": "Polish",
+		"language2": "English",
+		"categoryName": "Music"
 	}
 }
