@@ -1,5 +1,7 @@
 package com.interactive.dictionary.tests;
 
+import java.util.ArrayList;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -7,8 +9,10 @@ import com.interactive.dictionary.base.BaseTest;
 import com.interactive.dictionary.components.Navigation;
 import com.interactive.dictionary.pages.AddCategoryPage;
 import com.interactive.dictionary.pages.AddLanguagePage;
+import com.interactive.dictionary.pages.AddSetPage;
 import com.interactive.dictionary.pages.CategoriesPage;
 import com.interactive.dictionary.pages.LanguagesPage;
+import com.interactive.dictionary.pages.SetPage;
 import com.interactive.dictionary.utils.Utils;
 
 public class MainFlow1 extends BaseTest {
@@ -63,7 +67,24 @@ public class MainFlow1 extends BaseTest {
 	
 	@Test(priority = 3)
 	public void addSet() {
+		SetPage setPage = new SetPage(driver);
+		setPage.clickAddSet();
 		
+		AddSetPage addSetPage = new AddSetPage(driver);
+		addSetPage.setSetName(Utils.getStringFromJson("MainFlow1", "setName", "testData"));
+		
+		ArrayList<String> srcWords = Utils.getArrayFromJson("MainFlow1", "srcWords", "testData");
+		ArrayList<String> targetWords = Utils.getArrayFromJson("MainFlow1", "targetWords", "testData");
+		
+		addSetPage.putWordsIntoTable(srcWords, "left");
+		addSetPage.putWordsIntoTable(targetWords, "right");
+		addSetPage.clickAddSet();
+		
+		Assert.assertTrue(setPage.checkSetExist(Utils.getStringFromJson("MainFlow1", 
+												"setName", "expectedData")));
+		Assert.assertEquals(setPage.getWordsNum(), srcWords.size());
+		
+		setPage.clickBox(Utils.getStringFromJson("MainFlow1", "setName", "testData"));
 	}
 	
 }

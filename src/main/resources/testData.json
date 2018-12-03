@@ -4,6 +4,9 @@
 		"language2": "English",
 		"categoryName": "Music",
 		"defaultTargetSide": "right",
-		"defaultCountdownDuration": "10"
+		"defaultCountdownDuration": "10",
+		"setName": "Music_1",
+		"srcWords": ["skrzypce", "wiolonczela", "wokal", "puzon", "trąbka", "fortepian", "saksofon", "kontrabas", "flet", "perkusja", "dzwonki"],
+		"targetWords": ["violin", "cello", "vocal", "trombone", "trumpet", "grand piano", "saxophone", "double bass", "flute", "drum set", "chimes"]
 	}
 }
