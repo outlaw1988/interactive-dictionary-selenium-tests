@@ -37,4 +37,8 @@ public class Navigation {
 		categoriesEl.click();
 	}
 	
+	public void clickLogOut() {
+		logoutEl.click();
+	}
+	
 }

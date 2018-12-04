@@ -39,4 +39,18 @@ public class SetPage {
 		return Integer.parseInt(wordsNumEl.getText());
 	}
 	
+	public String getLastResult(String setName) {
+		
+		String xpath = "//*[contains(text(),'" + setName + "')]//parent::div/parent::div/span[2]/span";
+	
+		return driver.findElement(By.xpath(xpath)).getText();
+	}
+	
+	public String getBestResult(String setName) {
+		
+		String xpath = "//*[contains(text(),'Music_1')]//parent::div/parent::div/span[3]/span";
+		
+		return driver.findElement(By.xpath(xpath)).getText();
+		
+	}
 }

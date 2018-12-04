@@ -7,6 +7,9 @@
 		"defaultCountdownDuration": "10",
 		"setName": "Music_1",
 		"srcWords": ["skrzypce", "wiolonczela", "wokal", "puzon", "trąbka", "fortepian", "saksofon", "kontrabas", "flet", "perkusja", "dzwonki"],
-		"targetWords": ["violin", "cello", "vocal", "trombone", "trumpet", "grand piano", "saxophone", "double bass", "flute", "drum set", "chimes"]
+		"targetWords": ["violin", "cello", "vocal", "trombone", "trumpet", "grand piano", "saxophone", "double bass", "flute", "drum set", "chimes"],
+		"fail1": "aaaaaaaa",
+		"fail2": "bbbbbbbb",
+		"answersList": ["1", "1", "1", "0", "1", "1", "1", "0", "1", "1", "1"]
 	}
 }

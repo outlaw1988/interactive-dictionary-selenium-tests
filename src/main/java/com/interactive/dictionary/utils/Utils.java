@@ -9,6 +9,10 @@ import org.joda.time.DateTime;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class Utils {
@@ -80,6 +84,11 @@ public class Utils {
         catch(Exception e) { e.printStackTrace(); }
 		
 		return result;
+	}
+	
+	public static void waitUntilVisibleById(WebDriver driver, String id) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
 	}
 	
 }

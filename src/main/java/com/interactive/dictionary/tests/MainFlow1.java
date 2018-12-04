@@ -11,11 +11,18 @@ import com.interactive.dictionary.pages.AddCategoryPage;
 import com.interactive.dictionary.pages.AddLanguagePage;
 import com.interactive.dictionary.pages.AddSetPage;
 import com.interactive.dictionary.pages.CategoriesPage;
+import com.interactive.dictionary.pages.ExamPage;
+import com.interactive.dictionary.pages.ExamSummaryPage;
 import com.interactive.dictionary.pages.LanguagesPage;
 import com.interactive.dictionary.pages.SetPage;
+import com.interactive.dictionary.pages.WordsPreviewPage;
 import com.interactive.dictionary.utils.Utils;
 
 public class MainFlow1 extends BaseTest {
+	
+	private ArrayList<String> srcWords;
+	private ArrayList<String> targetWords;
+	private ArrayList<String> answersList;
 
 	@Test(priority = 1)
 	public void addLanguages() {
@@ -73,8 +80,8 @@ public class MainFlow1 extends BaseTest {
 		AddSetPage addSetPage = new AddSetPage(driver);
 		addSetPage.setSetName(Utils.getStringFromJson("MainFlow1", "setName", "testData"));
 		
-		ArrayList<String> srcWords = Utils.getArrayFromJson("MainFlow1", "srcWords", "testData");
-		ArrayList<String> targetWords = Utils.getArrayFromJson("MainFlow1", "targetWords", "testData");
+		srcWords = Utils.getArrayFromJson("MainFlow1", "srcWords", "testData");
+		targetWords = Utils.getArrayFromJson("MainFlow1", "targetWords", "testData");
 		
 		addSetPage.putWordsIntoTable(srcWords, "left");
 		addSetPage.putWordsIntoTable(targetWords, "right");
@@ -85,6 +92,68 @@ public class MainFlow1 extends BaseTest {
 		Assert.assertEquals(setPage.getWordsNum(), srcWords.size());
 		
 		setPage.clickBox(Utils.getStringFromJson("MainFlow1", "setName", "testData"));
+	}
+	
+	@Test(priority = 4)
+	public void wordsPreview() {
+		WordsPreviewPage previewPage = new WordsPreviewPage(driver);
+		Assert.assertEquals(previewPage.checkLabels(1), Utils.getStringFromJson("MainFlow1", 
+														"language1", "expectedData"));
+		Assert.assertEquals(previewPage.checkLabels(2), Utils.getStringFromJson("MainFlow1", 
+														"language2", "expectedData"));
+		Assert.assertTrue(previewPage.checkElementsInTableMatch(srcWords, 1));
+		Assert.assertTrue(previewPage.checkElementsInTableMatch(targetWords, 2));
+		
+		previewPage.clickPerformExam();
+	}
+	
+	@Test(priority = 5)
+	public void performingExam() {
+		ExamPage exam = new ExamPage(driver);
+		
+		ArrayList<String> targetWordsExam = new ArrayList<String>(targetWords);
+		
+		answersList = Utils.getArrayFromJson("MainFlow1", "answersList", "testData");
+		targetWordsExam.set(3, Utils.getStringFromJson("MainFlow1", "fail1", "testData"));
+		targetWordsExam.set(7, Utils.getStringFromJson("MainFlow1", "fail2", "testData"));
+		
+		for (int i = 0; i < srcWords.size(); i++) {
+			int index = exam.enterTheWord(srcWords, targetWordsExam);
+			exam.clickCheckButt();
+			Assert.assertTrue(exam.checkSuccOrFailMessage(index, answersList));
+			exam.clickNextButt();
+		}
+	}
+	
+	@Test(priority = 6)
+	public void examSummary() {
+		ExamSummaryPage examSummary = new ExamSummaryPage(driver);
+		Assert.assertEquals(examSummary.getLastResult(), 
+				Utils.getStringFromJson("MainFlow1", "lastResult", "expectedData"));
+		
+		Assert.assertEquals(examSummary.getBestResult(), 
+				Utils.getStringFromJson("MainFlow1", "bestResult", "expectedData"));
+		
+		Assert.assertEquals(examSummary.checkLanguageLabel(1), Utils.getStringFromJson("MainFlow1", 
+								"language1", "expectedData"));
+		Assert.assertEquals(examSummary.checkLanguageLabel(2), Utils.getStringFromJson("MainFlow1", 
+								"language2", "expectedData"));
+		
+		Assert.assertTrue(examSummary.checkTableContent(srcWords, targetWords, answersList));
+		
+		examSummary.clickGoBack();
+	}
+	
+	@Test(priority = 7)
+	public void checkSetResults() {
+		SetPage setPage = new SetPage(driver);
+		Assert.assertEquals(setPage.getLastResult(Utils.getStringFromJson("MainFlow1", 
+				"setName", "testData")), Utils.getStringFromJson("MainFlow1", "lastResult", 
+						"expectedData"));
+		
+		Assert.assertEquals(setPage.getBestResult(Utils.getStringFromJson("MainFlow1", 
+				"setName", "testData")), Utils.getStringFromJson("MainFlow1", "bestResult", 
+						"expectedData"));
 	}
 	
 }

@@ -19,5 +19,11 @@
 	 		  <class name="com.interactive.dictionary.tests.MainFlow1" />
 	 	  </classes>
 	 </test>
+	 
+	 <test name="LogOut">
+	 	  <classes>
+	 		  <class name="com.interactive.dictionary.tests.LogOut" />
+	 	  </classes>
+	 </test>
  
 </suite>
