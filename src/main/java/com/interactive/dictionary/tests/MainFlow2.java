@@ -22,6 +22,9 @@ public class MainFlow2 extends BaseTest {
 
 	@Test(priority = 1)
 	public void addFreeSet() {
+		
+//		test = extent.createTest("Add free set");
+		
 		Navigation navigation = new Navigation(driver);
 		navigation.getIntoFreeSets();
 		
@@ -47,6 +50,8 @@ public class MainFlow2 extends BaseTest {
 	@Test(priority = 2)
 	public void wordsPreview() {
 		
+//		test = extent.createTest("Words preview");
+		
 		srcWords = Utils.getArrayFromJson("MainFlow2", "srcWords", "testData");
 		targetWords = Utils.getArrayFromJson("MainFlow2", "targetWords", "testData");
 		
@@ -63,6 +68,9 @@ public class MainFlow2 extends BaseTest {
 	
 	@Test(priority = 3)
 	public void performExam() {
+		
+//		test = extent.createTest("Perform exam");
+		
 		ExamPage exam = new ExamPage(driver);
 		
 		ArrayList<String> targetWordsExam = new ArrayList<String>(targetWords);
@@ -83,6 +91,9 @@ public class MainFlow2 extends BaseTest {
 	
 	@Test(priority = 4)
 	public void examSummary() {
+		
+//		test = extent.createTest("Exam summary");
+		
 		ExamSummaryPage examSummary = new ExamSummaryPage(driver);
 		Assert.assertEquals(examSummary.getLastResult(), 
 				Utils.getStringFromJson("MainFlow2", "lastResult", "expectedData"));
@@ -102,6 +113,9 @@ public class MainFlow2 extends BaseTest {
 	
 	@Test(priority = 5)
 	public void checkSetResults() {
+		
+//		test = extent.createTest("Check set results");
+		
 		FreeSetsPage freeSetsPage = new FreeSetsPage(driver);
 		Assert.assertEquals(freeSetsPage.getLastResult(Utils.getStringFromJson("MainFlow2", 
 				"setName", "testData")), Utils.getStringFromJson("MainFlow2", "lastResult", 
