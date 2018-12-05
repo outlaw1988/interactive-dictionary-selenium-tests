@@ -5,6 +5,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -12,8 +14,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.interactive.dictionary.reports.ExtentManager;
 import com.interactive.dictionary.utils.ReadConfig;
 
 public class BaseTest {
@@ -23,11 +24,12 @@ public class BaseTest {
 	public static String email;
 	public static String password;
 	
-	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
+	public static ExtentTest pNode;
 	public static ExtentTest test;
-	public static ExtentTest parentTest;
-	public static ExtentTest childTest;
+	
+	@SuppressWarnings("rawtypes")
+	public static ThreadLocal parentTest = new ThreadLocal();
 	
 	@BeforeSuite
 	public void setupBefore() {
@@ -38,29 +40,26 @@ public class BaseTest {
 	}
 	
 	@BeforeSuite
-	public void startReport() {
-		
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + 
-												"/test-output/report.html");
-		extent = new ExtentReports();
-		extent.attachReporter(htmlReporter);
-		
-		extent.setSystemInfo("Browser", "Firefox");
-		
-		htmlReporter.config().setDocumentTitle("Interactive dictionary tests");
-		htmlReporter.config().setReportName("Interactive dictionary report");
-		htmlReporter.config().setTheme(Theme.DARK);
+	public void beforeSuite() {
+		extent = ExtentManager.createInstance(ReadConfig.getProperty("reportsOutputDir"));
+		extent.setSystemInfo("OS", "Linux");
 	}
 	
-	@AfterMethod
-	public void addTestToExtent(ITestResult result) {
-		test = extent.createTest(result.getMethod().getMethodName());
-//		childTest = parentTest.createNode(result.getMethod().getMethodName());
+	@SuppressWarnings("unchecked")
+	@BeforeClass
+	public void beforeClassExtent() {
+		pNode = extent.createTest(getClass().getSimpleName());
+		parentTest.set(pNode);
+	}
+	
+	@BeforeMethod
+	public void beforeMethodExtent(ITestResult result) {
+		test = pNode.createNode(result.getMethod().getMethodName());
 	}
 
 	@AfterMethod
 	public void getResult(ITestResult result) {
-		
+
 		if (result.getStatus() == ITestResult.FAILURE) {
 			
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + 

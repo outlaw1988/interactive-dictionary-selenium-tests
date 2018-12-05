@@ -8,12 +8,10 @@ import org.testng.annotations.Test;
 import com.interactive.dictionary.base.BaseTest;
 import com.interactive.dictionary.components.Navigation;
 import com.interactive.dictionary.pages.AddCategoryPage;
-import com.interactive.dictionary.pages.AddLanguagePage;
 import com.interactive.dictionary.pages.AddSetPage;
 import com.interactive.dictionary.pages.CategoriesPage;
 import com.interactive.dictionary.pages.ExamPage;
 import com.interactive.dictionary.pages.ExamSummaryPage;
-import com.interactive.dictionary.pages.LanguagesPage;
 import com.interactive.dictionary.pages.SetPage;
 import com.interactive.dictionary.pages.WordsPreviewPage;
 import com.interactive.dictionary.utils.Utils;
@@ -26,11 +24,15 @@ public class MainFlow1 extends BaseTest {
 
 	@Test(priority = 1)
 	public void addCategory() {
+		test.info("Run navigation");
+		
 		Navigation navigation = new Navigation(driver);
 		navigation.getIntoCategories();
 		
 		CategoriesPage categoriesPage = new CategoriesPage(driver);
 		categoriesPage.clickAddCategory();
+		
+		test.info("Add category page");
 		
 		AddCategoryPage addCategoryPage = new AddCategoryPage(driver);
 		addCategoryPage.setCategoryName(Utils.getStringFromJson("MainFlow1", "categoryName", "testData"));
