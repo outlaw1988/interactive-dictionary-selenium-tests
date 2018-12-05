@@ -11,5 +11,20 @@
 		"fail1": "aaaaaaaa",
 		"fail2": "bbbbbbbb",
 		"answersList": ["1", "1", "1", "0", "1", "1", "1", "0", "1", "1", "1"]
+	},
+	
+	"MainFlow2": {
+		"setName": "Body parts",
+		"srcLanguage": "Polish",
+		"targetLanguage": "English",
+		"countdownDuration": "10",
+		"filePath": "/home/jakub/Repositories/interactive-dictionary-selenium-tests/src/main/resources/bodyParts.txt",
+		"srcWords": ["nos", "ręka", "usta", "noga", "palec", "głowa", "ucho", "oczy", "włosy", "zęby", "paznokieć", "dłoń", "kolano", "kostka", "stopa", "klatka piersiowa"],
+		"targetWords": ["nose", "arm", "lips", "leg", "finger", "head", "ear", "eyes", "hair", "teeth", "nail", "hand", "knee", "ancle", "foot", "chest"],
+		"answersList": ["1", "1", "0", "1", "1", "1", "0", "1", "1", "0", "1", "1", "1", "0", "1", "1"],
+		"fail1": "aaaaaaaa",
+		"fail2": "bbbbbbbb",
+		"fail3": "cccccccc",
+		"fail4": "dddddddd"
 	}
 }

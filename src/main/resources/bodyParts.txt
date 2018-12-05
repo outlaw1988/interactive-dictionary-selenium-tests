@@ -1,0 +1,16 @@
+nos;nose
+ręka;arm
+usta;lips
+noga;leg
+palec;finger
+głowa;head
+ucho;ear
+oczy;eyes
+włosy;hair
+zęby;teeth
+paznokieć;nail
+dłoń;hand
+kolano;knee
+kostka;ancle
+stopa;foot
+klatka piersiowa;chest

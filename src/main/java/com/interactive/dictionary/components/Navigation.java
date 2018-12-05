@@ -41,4 +41,8 @@ public class Navigation {
 		logoutEl.click();
 	}
 	
+	public void getIntoFreeSets() {
+		freesetsEl.click();
+	}
+	
 }

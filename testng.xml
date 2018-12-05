@@ -14,9 +14,21 @@
 	     </classes>
 	 </test>
 	 
+	 <test name="AddLanguages" >
+	     <classes>
+	        <class name="com.interactive.dictionary.tests.AddLanguages" />
+	     </classes>
+	 </test>
+	 
 	 <test name="MainFlow1">
 	 	  <classes>
 	 		  <class name="com.interactive.dictionary.tests.MainFlow1" />
+	 	  </classes>
+	 </test>
+	 
+	 <test name="MainFlow2">
+	 	  <classes>
+	 		  <class name="com.interactive.dictionary.tests.MainFlow2" />
 	 	  </classes>
 	 </test>
 	 

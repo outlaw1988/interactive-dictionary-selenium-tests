@@ -6,23 +6,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SetPage {
+public class FreeSetsPage {
 
 	private WebDriver driver;
 	
-	@FindBy(id = "add-set")
-	private WebElement addSetEl;
+	@FindBy(id = "add-free-set")
+	private WebElement addFreeSetButt;
 	
-	@FindBy(id = "words-num")
-	private WebElement wordsNumEl;
-	
-	public SetPage(WebDriver driver) {
+	public FreeSetsPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void clickAddSet() {
-		addSetEl.click();
+	public void addFreeSet() {
+		addFreeSetButt.click();
 	}
 	
 	public boolean checkSetExist(String setName) {
@@ -30,27 +27,27 @@ public class SetPage {
 		return driver.findElements(By.xpath(xpath)).size() > 0;
 	}
 	
+	public int getWordsNum(String setName) {
+		String xpath = "//*[contains(text(),'" + setName + "')]//parent::div/parent::div/span[1]/span";
+		return Integer.parseInt(driver.findElement(By.xpath(xpath)).getText());
+	}
+	
 	public void clickBox(String setName) {
 		String xpath = "//a[contains(text(),'" + setName + "')]";
 		driver.findElement(By.xpath(xpath)).click();
 	}
 	
-	public int getWordsNum() {
-		return Integer.parseInt(wordsNumEl.getText());
-	}
-	
 	public String getLastResult(String setName) {
 		
 		String xpath = "//*[contains(text(),'" + setName + "')]//parent::div/parent::div/span[2]/span";
-	
+		
 		return driver.findElement(By.xpath(xpath)).getText();
 	}
 	
 	public String getBestResult(String setName) {
-		
 		String xpath = "//*[contains(text(),'" + setName + "')]//parent::div/parent::div/span[3]/span";
 		
 		return driver.findElement(By.xpath(xpath)).getText();
-		
 	}
+	
 }

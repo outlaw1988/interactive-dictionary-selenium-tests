@@ -10,5 +10,13 @@
 		"setName": "Music_1",
 		"lastResult": "81%",
 		"bestResult": "81%"
+	},
+	
+	"MainFlow2": {
+		"wordsNum": "16",
+		"srcLanguage": "Polish",
+		"targetLanguage": "English",
+		"lastResult": "75%",
+		"bestResult": "75%"
 	}
 }
