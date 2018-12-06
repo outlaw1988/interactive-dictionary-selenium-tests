@@ -13,6 +13,7 @@ import com.interactive.dictionary.utils.Utils;
 public class ExamSummaryPage {
 
 	private WebDriver driver;
+	private String browser;
 	
 	private final String lastResultId = "last-result";
 	@FindBy(id = lastResultId)
@@ -25,8 +26,9 @@ public class ExamSummaryPage {
 	@FindBy(id = "go-back")
 	private WebElement goBackEl;
 	
-	public ExamSummaryPage(WebDriver driver) {
+	public ExamSummaryPage(WebDriver driver, String browser) {
 		this.driver = driver;
+		this.browser = browser;
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -73,24 +75,64 @@ public class ExamSummaryPage {
 			
 			int answer = Integer.parseInt(answersList.get(i - offset));
 			
+//			System.out.println("Matching passed");
+//			System.out.println("Color left field: " + leftField.getCssValue("color"));
+//			System.out.println("Color right field: " + rightField.getCssValue("color"));
+			
 			if (answer == 0) {
-				if (!leftField.getCssValue("color").equals("rgb(255, 0, 0)")) {
-					return false;
-				}
 				
-				if (!rightField.getCssValue("color").equals("rgb(255, 0, 0)")) {
-					return false;
+				if (browser.equals("firefox")) {
+					// RED
+					//System.out.println("Browser: firefox");
+					if (!leftField.getCssValue("color").equals("rgb(255, 0, 0)")) {
+						System.out.println("Color != rgb(255, 0, 0)");
+						return false;
+					}
+					
+					if (!rightField.getCssValue("color").equals("rgb(255, 0, 0)")) {
+						return false;
+					}
+					
+				} else if (browser.equals("chrome") || browser.equals("opera")) {
+					
+					if (!leftField.getCssValue("color").equals("rgba(255, 0, 0, 1)")) {
+						return false;
+					}
+					
+					if (!rightField.getCssValue("color").equals("rgba(255, 0, 0, 1)")) {
+						return false;
+					}
+					
 				}
 				
 			} else if (answer == 1) {
-				if (!leftField.getCssValue("color").equals("rgb(0, 128, 0)")) {
-					return false;
+				
+				if (browser.equals("firefox")) {
+					// GREEN
+					if (!leftField.getCssValue("color").equals("rgb(0, 128, 0)")) {
+						return false;
+					}
+					
+					if (!rightField.getCssValue("color").equals("rgb(0, 128, 0)")) {
+						return false;
+					}
+					
+				} else if (browser.equals("chrome") || browser.equals("opera")) {
+					
+					if (!leftField.getCssValue("color").equals("rgba(0, 128, 0, 1)")) {
+						return false;
+					}
+					
+					if (!rightField.getCssValue("color").equals("rgba(0, 128, 0, 1)")) {
+						return false;
+					}
+					
 				}
 				
-				if (!rightField.getCssValue("color").equals("rgb(0, 128, 0)")) {
-					return false;
-				}
+				
 			}
+			
+//			System.out.println("Colors passed");
 			
 		}
 		

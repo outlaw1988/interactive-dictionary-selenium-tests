@@ -107,7 +107,7 @@ public class MainFlow1 extends BaseTest {
 	
 	@Test(priority = 6)
 	public void examSummary() {
-		ExamSummaryPage examSummary = new ExamSummaryPage(driver);
+		ExamSummaryPage examSummary = new ExamSummaryPage(driver, browser);
 		Assert.assertEquals(examSummary.getLastResult(), 
 				Utils.getStringFromJson("MainFlow1", "lastResult", "expectedData"));
 		

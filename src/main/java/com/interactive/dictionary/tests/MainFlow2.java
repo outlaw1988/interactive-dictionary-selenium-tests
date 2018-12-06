@@ -37,7 +37,7 @@ public class MainFlow2 extends BaseTest {
 				"countdownDuration", "testData"));
 		addFreeSet.setUpload(Utils.getStringFromJson("MainFlow2", "filePath", "testData"));
 		addFreeSet.clickAddSet();
-		
+
 		Assert.assertTrue(freeSets.checkSetExist(Utils.getStringFromJson("MainFlow2", 
 												"setName", "testData")));
 		Assert.assertEquals(freeSets.getWordsNum(Utils.getStringFromJson("MainFlow2", "setName", "testData")), 
@@ -86,7 +86,7 @@ public class MainFlow2 extends BaseTest {
 	@Test(priority = 4)
 	public void examSummary() {
 		
-		ExamSummaryPage examSummary = new ExamSummaryPage(driver);
+		ExamSummaryPage examSummary = new ExamSummaryPage(driver, browser);
 		Assert.assertEquals(examSummary.getLastResult(), 
 				Utils.getStringFromJson("MainFlow2", "lastResult", "expectedData"));
 		
