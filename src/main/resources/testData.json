@@ -26,5 +26,14 @@
 		"fail2": "bbbbbbbb",
 		"fail3": "cccccccc",
 		"fail4": "dddddddd"
+	},
+	
+	"AddCategory": {
+		"categoryNameEmpty": "",
+		"categoryNameLong": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		"categoryNameExist": "Family",
+		"categoryName": "Cars",
+		"srcLanguage": "Polish",
+		"targetLanguage": "English"
 	}
 }

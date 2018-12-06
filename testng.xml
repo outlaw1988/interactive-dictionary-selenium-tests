@@ -20,7 +20,7 @@
 	     </classes>
 	 </test>
 	 
-	 <test name="MainFlow1">
+	 <!-- <test name="MainFlow1">
 	 	  <classes>
 	 		  <class name="com.interactive.dictionary.tests.MainFlow1" />
 	 	  </classes>
@@ -30,12 +30,18 @@
 	 	  <classes>
 	 		  <class name="com.interactive.dictionary.tests.MainFlow2" />
 	 	  </classes>
+	 </test> -->
+	 
+	 <test name="AddCategory">
+	 	<classes>
+	 		<class name="com.interactive.dictionary.tests.AddCategory"></class>
+	 	</classes>
 	 </test>
 	 
-	 <test name="LogOut">
+	 <!-- <test name="LogOut">
 	 	  <classes>
 	 		  <class name="com.interactive.dictionary.tests.LogOut" />
 	 	  </classes>
-	 </test>
+	 </test> -->
  
 </suite>
