@@ -26,6 +26,9 @@ public class AddCategoryPage {
 	@FindBy(id = "defaultTargetLanguage.errors")
 	private WebElement defTargetLanErrorsEl;
 	
+	@FindBy(id = "defaultSrcLanguage.errors")
+	private WebElement defSrcLanErrorsEl;
+	
 	String defaultSrcLanguageId = "defaultSrcLanguage";
 	
 	String defaultTargetLanguageId = "defaultTargetLanguage";
@@ -72,6 +75,10 @@ public class AddCategoryPage {
 	
 	public String getErrorName() {
 		return nameErrorsEl.getText();
+	}
+	
+	public String getErrorDefSrcLan() {
+		return defSrcLanErrorsEl.getText();
 	}
 	
 	public String getErrorDefTargetLan() {

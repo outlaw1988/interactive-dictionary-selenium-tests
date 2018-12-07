@@ -97,6 +97,11 @@ public class Utils {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
 	}
 	
+	public static void waitUntilVisibleByXpath(WebDriver driver, String xpath) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+	}
+	
 	public static String captureScreenshot(WebDriver driver, String ssName) {
 		
 		String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());

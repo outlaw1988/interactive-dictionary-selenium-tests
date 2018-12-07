@@ -24,6 +24,7 @@
 		"urlConfirm": "http://localhost:8080/add-category",
 		"errorNameMessageSize": "size must be between 1 and 100",
 		"errorNameMessageExist": "This category already exists",
-		"errorLanguagesDifferent": "Languages must be different"
+		"errorLanguagesDifferent": "Languages must be different",
+		"errorLanguagesNull": "must not be null"
 	}
 }

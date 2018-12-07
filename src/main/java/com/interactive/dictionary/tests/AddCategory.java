@@ -105,6 +105,9 @@ public class AddCategory extends BaseTest {
 		
 		AddCategoryPage addCategory = new AddCategoryPage(driver);
 		addCategory.setCategoryName(Utils.getStringFromJson("AddCategory", "categoryName", "testData"));
+		
+		test.info("Adding same languages");
+		
 		addCategory.chooseDefaultLanguage(Utils.getStringFromJson("AddCategory", 
 										"srcLanguage", "testData"), "srcLanguage");
 		addCategory.chooseDefaultLanguage(Utils.getStringFromJson("AddCategory", 
@@ -117,6 +120,46 @@ public class AddCategory extends BaseTest {
 										"errorLanguagesDifferent", "expectedData"));
 		
 		addCategory.clickGoBack();
+	}
+	
+	@Test(priority = 6)
+	public void languagesNull() {
+		CategoriesPage categories = new CategoriesPage(driver);
+		categories.clickAddCategory();
+		
+		test.info("No languages added");
+		
+		AddCategoryPage addCategory = new AddCategoryPage(driver);
+		addCategory.setCategoryName(Utils.getStringFromJson("AddCategory", "categoryName", "testData"));
+		addCategory.clickAddCategory();
+		
+		Assert.assertEquals(addCategory.getErrorDefSrcLan(), Utils.getStringFromJson("AddCategory", 
+							"errorLanguagesNull", "expectedData"));
+		
+		Assert.assertEquals(addCategory.getErrorDefTargetLan(), Utils.getStringFromJson("AddCategory", 
+							"errorLanguagesNull", "expectedData"));
+		
+		addCategory.clickGoBack();
+	}
+	
+	@Test(priority = 7)
+	public void addProperCategory() {
+		CategoriesPage categories = new CategoriesPage(driver);
+		categories.clickAddCategory();
+		
+		test.info("Proper category added");
+		
+		AddCategoryPage addCategory = new AddCategoryPage(driver);
+		addCategory.setCategoryName(Utils.getStringFromJson("AddCategory", "categoryName", "testData"));
+		addCategory.chooseDefaultLanguage(Utils.getStringFromJson("AddCategory", 
+										"srcLanguage", "testData"), "srcLanguage");
+		addCategory.chooseDefaultLanguage(Utils.getStringFromJson("AddCategory", 
+										"targetLanguage", "testData"), "targetLanguage");
+		addCategory.chooseDefaultTargetSide(Utils.getStringFromJson("AddCategory", 
+										"defaultTargetSide", "testData"));
+		addCategory.chooseDefaultCountdownDuration(Utils.getStringFromJson("AddCategory", 
+										"defaultCountdownDuration", "testData"));
+		addCategory.clickAddCategory();
 	}
 	
 }

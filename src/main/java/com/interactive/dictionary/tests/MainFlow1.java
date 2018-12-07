@@ -46,7 +46,7 @@ public class MainFlow1 extends BaseTest {
 											"defaultCountdownDuration", "testData"));
 		addCategoryPage.clickAddCategory();
 		
-		Assert.assertTrue(categoriesPage.checkSetExist(Utils.getStringFromJson("MainFlow1", 
+		Assert.assertTrue(categoriesPage.checkCategoryExist(Utils.getStringFromJson("MainFlow1", 
 											"categoryName", "expectedData")));
 		
 		categoriesPage.clickBox(Utils.getStringFromJson("MainFlow1", "categoryName", "testData"));

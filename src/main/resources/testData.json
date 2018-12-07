@@ -34,6 +34,8 @@
 		"categoryNameExist": "Family",
 		"categoryName": "Cars",
 		"srcLanguage": "Polish",
-		"targetLanguage": "English"
+		"targetLanguage": "English",
+		"defaultTargetSide": "right",
+		"defaultCountdownDuration": "10"
 	}
 }

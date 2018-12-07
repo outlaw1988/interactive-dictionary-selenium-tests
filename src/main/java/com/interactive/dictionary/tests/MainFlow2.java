@@ -114,6 +114,9 @@ public class MainFlow2 extends BaseTest {
 		Assert.assertEquals(freeSetsPage.getBestResult(Utils.getStringFromJson("MainFlow2", 
 				"setName", "testData")), Utils.getStringFromJson("MainFlow2", "bestResult", 
 						"expectedData"));
+		
+		Navigation navigation = new Navigation(driver);
+		navigation.getIntoCategories();
 	}
 	
 }
