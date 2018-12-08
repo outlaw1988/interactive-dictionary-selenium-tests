@@ -142,24 +142,6 @@ public class AddCategory extends BaseTest {
 		addCategory.clickGoBack();
 	}
 	
-	@Test(priority = 7)
-	public void addProperCategory() {
-		CategoriesPage categories = new CategoriesPage(driver);
-		categories.clickAddCategory();
-		
-		test.info("Proper category added");
-		
-		AddCategoryPage addCategory = new AddCategoryPage(driver);
-		addCategory.setCategoryName(Utils.getStringFromJson("AddCategory", "categoryName", "testData"));
-		addCategory.chooseDefaultLanguage(Utils.getStringFromJson("AddCategory", 
-										"srcLanguage", "testData"), "srcLanguage");
-		addCategory.chooseDefaultLanguage(Utils.getStringFromJson("AddCategory", 
-										"targetLanguage", "testData"), "targetLanguage");
-		addCategory.chooseDefaultTargetSide(Utils.getStringFromJson("AddCategory", 
-										"defaultTargetSide", "testData"));
-		addCategory.chooseDefaultCountdownDuration(Utils.getStringFromJson("AddCategory", 
-										"defaultCountdownDuration", "testData"));
-		addCategory.clickAddCategory();
-	}
+	
 	
 }

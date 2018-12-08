@@ -32,10 +32,31 @@
 		"categoryNameEmpty": "",
 		"categoryNameLong": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 		"categoryNameExist": "Family",
-		"categoryName": "Cars",
 		"srcLanguage": "Polish",
 		"targetLanguage": "English",
 		"defaultTargetSide": "right",
 		"defaultCountdownDuration": "10"
+	},
+	
+	"AddSet": {
+		"categoryName": "Body parts2",
+		"srcLanguage1": "Polish",
+		"targetLanguage1": "English",
+		"srcLanguage2": "English",
+		"targetLanguage2": "Polish",
+		"defaultTargetSide": "right",
+		"defaultCountdownDuration": "10",
+		"setName": "Body parts_1",
+		"filePath": "/home/jakub/Repositories/interactive-dictionary-selenium-tests/src/main/resources/bodyParts.txt",
+		"srcWords": ["nos", "ręka", "usta", "noga", "palec", "głowa", "ucho", "oczy", "włosy", "zęby", "paznokieć", "dłoń", "kolano", "kostka", "stopa", "klatka piersiowa"],
+		"targetWords": ["nose", "arm", "lips", "leg", "finger", "head", "ear", "eyes", "hair", "teeth", "nail", "hand", "knee", "ancle", "foot", "chest"],
+		"srcWordsAfterRemove": ["nos", "ręka", "noga", "palec", "ucho", "oczy", "zęby", "dłoń", "kolano", "kostka", "stopa", "klatka piersiowa"],
+		"targetWordsAfterRemove": ["nose", "arm", "leg", "finger", "ear", "eyes", "teeth", "hand", "knee", "ancle", "foot", "chest"],
+		"srcWordsAfterRemoveAndAdd": ["nos", "ręka", "noga", "palec", "ucho", "oczy", "zęby", "dłoń", "kolano", "kostka", "stopa", "klatka piersiowa", "usta", "głowa", "włosy", "paznokieć"],
+		"targetWordsAfterRemoveAndAdd": ["nose", "arm", "leg", "finger", "ear", "eyes", "teeth", "hand", "knee", "ancle", "foot", "chest", "lips", "head", "hair", "nail"],
+		"targetSide1": "right",
+		"targetSide2": "left",
+		"wordsToRemoveAndAddSrc": ["usta", "głowa", "włosy", "paznokieć"],
+		"wordsToRemoveAndAddTarget": ["lips", "head", "hair", "nail"]
 	}
 }

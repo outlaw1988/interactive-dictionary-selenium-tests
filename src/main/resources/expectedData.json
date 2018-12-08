@@ -26,5 +26,14 @@
 		"errorNameMessageExist": "This category already exists",
 		"errorLanguagesDifferent": "Languages must be different",
 		"errorLanguagesNull": "must not be null"
+	},
+	
+	"AddSet": {
+		"targetLabel": "Target language",
+		"sourceLabel": "Source language",
+		"targetLanguage1": "English",
+		"sourceLanguage1": "Polish",
+		"targetLanguage2": "Polish",
+		"sourceLanguage2": "English",
 	}
 }
