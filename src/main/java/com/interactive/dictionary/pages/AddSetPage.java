@@ -1,7 +1,6 @@
 package com.interactive.dictionary.pages;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -13,9 +13,6 @@ public class SetPage {
 	@FindBy(id = "add-set")
 	private WebElement addSetEl;
 	
-	@FindBy(id = "words-num")
-	private WebElement wordsNumEl;
-	
 	public SetPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -35,8 +32,11 @@ public class SetPage {
 		driver.findElement(By.xpath(xpath)).click();
 	}
 	
-	public int getWordsNum() {
-		return Integer.parseInt(wordsNumEl.getText());
+	public int getWordsNum(String setName) {
+		
+		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/span[1]/span";
+		
+		return Integer.parseInt(driver.findElement(By.xpath(xpath)).getText());
 	}
 	
 	public String getLastResult(String setName) {

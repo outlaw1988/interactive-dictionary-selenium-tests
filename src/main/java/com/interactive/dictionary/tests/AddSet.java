@@ -11,6 +11,7 @@ import com.interactive.dictionary.pages.AddCategoryPage;
 import com.interactive.dictionary.pages.AddSetPage;
 import com.interactive.dictionary.pages.CategoriesPage;
 import com.interactive.dictionary.pages.SetPage;
+import com.interactive.dictionary.pages.WordsPreviewPage;
 import com.interactive.dictionary.utils.Utils;
 
 public class AddSet extends BaseTest {
@@ -169,6 +170,32 @@ public class AddSet extends BaseTest {
 												"targetWordsAfterRemoveAndAdd", "testData"), "right"));
 		
 		addSetPage.clickAddSet();
+	}
+	
+	@Test(priority = 8)
+	public void checkingSetBox() {
+		SetPage setPage = new SetPage(driver);
+		
+		test.info("Checking set exists, words number");
+		
+		String setName = Utils.getStringFromJson("AddSet", "setName", "testData");
+		
+		Assert.assertTrue(setPage.checkSetExist(setName));
+		Assert.assertEquals(setPage.getWordsNum(setName), Integer.parseInt(Utils.getStringFromJson("AddSet", 
+														"wordsNum", "expectedData")));
+		setPage.clickBox(setName);
+	}
+	
+	@Test(priority = 9)
+	public void checkWordsPreview() {
+		
+		WordsPreviewPage preview = new WordsPreviewPage(driver);
+		ArrayList<String> srcWords = Utils.getArrayFromJson("AddSet", "srcWordsAfterRemoveAndAdd", "testData");
+		ArrayList<String> targetWords = Utils.getArrayFromJson("AddSet", "targetWordsAfterRemoveAndAdd", "testData");
+		
+		preview.checkElementsInTableMatch(srcWords, 1);
+		preview.checkElementsInTableMatch(targetWords, 2);
+		
 	}
 
 }
