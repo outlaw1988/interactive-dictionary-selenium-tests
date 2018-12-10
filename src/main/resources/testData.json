@@ -59,5 +59,11 @@
 		"targetSide2": "left",
 		"wordsToRemoveAndAddSrc": ["usta", "głowa", "włosy", "paznokieć"],
 		"wordsToRemoveAndAddTarget": ["lips", "head", "hair", "nail"]
+	},
+	
+	"AddSet2": {
+		"filePath": "/home/jakub/Repositories/interactive-dictionary-selenium-tests/src/main/resources/bodyParts.txt",
+		"setName1": "Body parts_2",
+		"setName2": "Body parts_1"
 	}
 }

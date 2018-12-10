@@ -36,6 +36,9 @@ public class AddSetPage {
 	@FindBy(id = "add-set")
 	private WebElement addSetEl;
 	
+	@FindBy(id = "go-back")
+	private WebElement goBackEl;
+	
 	@FindBy(id = "right-label")
 	private WebElement rightLabelEl;
 	
@@ -51,6 +54,9 @@ public class AddSetPage {
 	@FindBy(id = "upload")
 	private WebElement uploadEl;
 	
+	@FindBy(id = "name.errors")
+	private WebElement nameErrorsEl;
+	
 	public AddSetPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -58,6 +64,10 @@ public class AddSetPage {
 	
 	public void setSetName(String setName) {
 		setNameEl.sendKeys(setName);
+	}
+	
+	public void clearSetName() {
+		setNameEl.clear();
 	}
 	
 	public void putWordsIntoTable(ArrayList<String> words, String side) {
@@ -88,6 +98,10 @@ public class AddSetPage {
 		addSetEl.click();
 	}
 	
+	public void clickGoBack() {
+		goBackEl.click();
+	}
+	
 	public String checkRightLabel() {
 		return rightLabelEl.getText();
 	}
@@ -106,6 +120,10 @@ public class AddSetPage {
 	
 	public void setUpload(String path) {
 		uploadEl.sendKeys(path);
+	}
+	
+	public String getNameError() {
+		return nameErrorsEl.getText();
 	}
 	
 	public boolean checkWordsInTable(ArrayList<String> words, String side) {

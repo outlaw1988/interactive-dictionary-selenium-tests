@@ -50,6 +50,8 @@ public class AddSet extends BaseTest {
 		SetPage setPage = new SetPage(driver);
 		setPage.clickAddSet();
 		
+		test.info("Checking labels and languages");
+		
 		AddSetPage addSetPage = new AddSetPage(driver);
 		addSetPage.setSetName(Utils.getStringFromJson("AddSet", "setName", "testData"));
 		Assert.assertEquals(addSetPage.checkRightLabel(), Utils.getStringFromJson("AddSet", 
@@ -195,6 +197,7 @@ public class AddSet extends BaseTest {
 		
 		preview.checkElementsInTableMatch(srcWords, 1);
 		preview.checkElementsInTableMatch(targetWords, 2);
+		preview.clickGoBack();
 		
 	}
 

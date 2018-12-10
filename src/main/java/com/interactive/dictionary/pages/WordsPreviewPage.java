@@ -15,6 +15,9 @@ public class WordsPreviewPage {
 	@FindBy(id = "perform-exam")
 	private WebElement performExamEl;
 	
+	@FindBy(id = "go-back")
+	private WebElement goBackEl;
+	
 	public WordsPreviewPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -41,6 +44,10 @@ public class WordsPreviewPage {
 	
 	public void clickPerformExam() {
 		performExamEl.click();
+	}
+	
+	public void clickGoBack() {
+		goBackEl.click();
 	}
 	
 }
