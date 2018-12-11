@@ -26,6 +26,8 @@ public class ExamSummaryPage {
 	@FindBy(id = "go-back")
 	private WebElement goBackEl;
 	
+	private final String tableXpath = "//table[@class='table table-striped table-hover']";
+	
 	public ExamSummaryPage(WebDriver driver, String browser) {
 		this.driver = driver;
 		this.browser = browser;
@@ -43,7 +45,7 @@ public class ExamSummaryPage {
 	}
 	
 	public String checkLanguageLabel(int index) {
-		String xpath = "//table[@class='table-add-set']/tbody/tr[2]/th[" + index + "]";
+		String xpath = tableXpath + "/thead/tr[2]/th[" + index + "]";
 		return driver.findElement(By.xpath(xpath)).getText();
 	}
 	
@@ -53,20 +55,20 @@ public class ExamSummaryPage {
 	
 	public boolean checkTableContent(ArrayList<String> srcWords, ArrayList<String> targetWords, 
 									ArrayList<String> answersList) {
-		int offset = 3;
+		int offset = 1;
 		
 		int sizeOff = srcWords.size() + offset;
 		
-		for (int i = 3; i < sizeOff; i++) {
+		for (int i = offset; i < sizeOff; i++) {
 			
-			String leftFieldXpath = "//table[@class='table-add-set']/tbody/tr[" + i + "]/td[1]";
+			String leftFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[1]";
 			WebElement leftField = driver.findElement(By.xpath(leftFieldXpath));
 			
 			if (!leftField.getText().equals(srcWords.get(i - offset))) {
 				return false;
 			}
 			
-			String rightFieldXpath = "//table[@class='table-add-set']/tbody/tr[" + i + "]/td[2]";
+			String rightFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[2]";
 			WebElement rightField = driver.findElement(By.xpath(rightFieldXpath));
 			
 			if (!rightField.getText().equals(targetWords.get(i - offset))) {

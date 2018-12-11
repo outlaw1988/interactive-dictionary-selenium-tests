@@ -18,23 +18,25 @@ public class WordsPreviewPage {
 	@FindBy(id = "go-back")
 	private WebElement goBackEl;
 	
+	private String tableXpath = "//table[@class='table table-striped table-hover']";
+	
 	public WordsPreviewPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
 	public String checkLabels(int index) {
-		String xpath = "//table[@class='table-add-set']/tbody/tr[2]/th[" + index + "]";
+		String xpath = tableXpath + "/thead/tr[2]/th[" + index + "]";
 		return driver.findElement(By.xpath(xpath)).getText();
 	}
 	
 	public boolean checkElementsInTableMatch(ArrayList<String> words, int side) {
-		int offset = 3;
+		int offset = 1;
 		for (int i = offset; i < (words.size() + offset); i++) {
-			String xpath = "//table[@class='table-add-set']/tbody/tr[" + i + "]/td[" + side + "]";
+			String xpath = tableXpath + "/tbody/tr[" + i + "]/td[" + side + "]";
 			String word = driver.findElement(By.xpath(xpath)).getText();
 			
-			if (!word.equals(words.get(i - 3))) {
+			if (!word.equals(words.get(i - offset))) {
 				return false;
 			}
 		}

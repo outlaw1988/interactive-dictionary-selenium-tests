@@ -13,7 +13,7 @@ public class LanguagesPage {
 	@FindBy(id = "add-language")
 	private WebElement addLanguageButt;
 	
-	private String tableXpath = "//table[@class='table table-striped']";
+	private String tableXpath = "//table[@class='table table-striped table-hover']";
 	
 	public LanguagesPage(WebDriver driver) {
 		this.driver = driver;

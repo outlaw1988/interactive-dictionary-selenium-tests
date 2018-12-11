@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.interactive.dictionary.utils.Utils;
+
 public class LoginPage {
 
 	private WebDriver driver;
@@ -18,7 +20,8 @@ public class LoginPage {
 	@FindBy(id = "sign-in")
 	private WebElement signinEl;
 	
-	@FindBy(id = "sign-up")
+	private final String signupId = "sign-up";
+	@FindBy(id = signupId)
 	private WebElement signupEl;
 	
 	public LoginPage(WebDriver driver) {
@@ -38,6 +41,7 @@ public class LoginPage {
 	}
 	
 	public void clickSignUp() {
+		Utils.waitUntilVisibleById(driver, signupId);
 		signupEl.click();
 	}
 	
