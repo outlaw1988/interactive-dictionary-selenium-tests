@@ -17,6 +17,18 @@ public class AddCategoryPage {
 	@FindBy(id = "add-category")
 	private WebElement addCategoryButt;
 	
+	@FindBy(id = "name.errors")
+	private WebElement nameErrorsEl;
+	
+	@FindBy(id = "go-back")
+	private WebElement goBackEl;
+	
+	@FindBy(id = "defaultTargetLanguage.errors")
+	private WebElement defTargetLanErrorsEl;
+	
+	@FindBy(id = "defaultSrcLanguage.errors")
+	private WebElement defSrcLanErrorsEl;
+	
 	String defaultSrcLanguageId = "defaultSrcLanguage";
 	
 	String defaultTargetLanguageId = "defaultTargetLanguage";
@@ -59,6 +71,22 @@ public class AddCategoryPage {
 	
 	public void clickAddCategory() {
 		addCategoryButt.click();
+	}
+	
+	public String getErrorName() {
+		return nameErrorsEl.getText();
+	}
+	
+	public String getErrorDefSrcLan() {
+		return defSrcLanErrorsEl.getText();
+	}
+	
+	public String getErrorDefTargetLan() {
+		return defTargetLanErrorsEl.getText();
+	}
+	
+	public void clickGoBack() {
+		goBackEl.click();
 	}
 	
 }

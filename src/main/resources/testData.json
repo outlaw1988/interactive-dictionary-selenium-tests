@@ -26,5 +26,67 @@
 		"fail2": "bbbbbbbb",
 		"fail3": "cccccccc",
 		"fail4": "dddddddd"
+	},
+	
+	"AddCategory": {
+		"categoryNameEmpty": "",
+		"categoryNameLong": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		"categoryNameExist": "Family",
+		"categoryName": "Cars",
+		"srcLanguage": "Polish",
+		"targetLanguage": "English",
+		"defaultTargetSide": "right",
+		"defaultCountdownDuration": "10"
+	},
+	
+	"AddSet": {
+		"categoryName": "Body parts2",
+		"srcLanguage1": "Polish",
+		"targetLanguage1": "English",
+		"srcLanguage2": "English",
+		"targetLanguage2": "Polish",
+		"defaultTargetSide": "right",
+		"defaultCountdownDuration": "10",
+		"setName": "Body parts_1",
+		"filePath": "/home/jakub/Repositories/interactive-dictionary-selenium-tests/src/main/resources/bodyParts.txt",
+		"srcWords": ["nos", "ręka", "usta", "noga", "palec", "głowa", "ucho", "oczy", "włosy", "zęby", "paznokieć", "dłoń", "kolano", "kostka", "stopa", "klatka piersiowa"],
+		"targetWords": ["nose", "arm", "lips", "leg", "finger", "head", "ear", "eyes", "hair", "teeth", "nail", "hand", "knee", "ancle", "foot", "chest"],
+		"srcWordsAfterRemove": ["nos", "ręka", "noga", "palec", "ucho", "oczy", "zęby", "dłoń", "kolano", "kostka", "stopa", "klatka piersiowa"],
+		"targetWordsAfterRemove": ["nose", "arm", "leg", "finger", "ear", "eyes", "teeth", "hand", "knee", "ancle", "foot", "chest"],
+		"srcWordsAfterRemoveAndAdd": ["nos", "ręka", "noga", "palec", "ucho", "oczy", "zęby", "dłoń", "kolano", "kostka", "stopa", "klatka piersiowa", "usta", "głowa", "włosy", "paznokieć"],
+		"targetWordsAfterRemoveAndAdd": ["nose", "arm", "leg", "finger", "ear", "eyes", "teeth", "hand", "knee", "ancle", "foot", "chest", "lips", "head", "hair", "nail"],
+		"targetSide1": "right",
+		"targetSide2": "left",
+		"wordsToRemoveAndAddSrc": ["usta", "głowa", "włosy", "paznokieć"],
+		"wordsToRemoveAndAddTarget": ["lips", "head", "hair", "nail"]
+	},
+	
+	"AddSet2": {
+		"filePath": "/home/jakub/Repositories/interactive-dictionary-selenium-tests/src/main/resources/bodyParts.txt",
+		"setName1": "Body parts_2",
+		"setName2": "Body parts_1"
+	},
+	
+	"AddFreeSet": {
+		"setName": "Football",
+		"srcLanguage": "Polish",
+		"targetLanguage": "English",
+		"srcWords": ["piłka nożna", "rzut rożny", "spalony", "rzut z autu", "sędzia", "bramka", "bramkarz", "napastnik", "obrońca", "rzut karny", "rzut wolny", "gwizdek", "liga", "kapitan", "główka", "faul", "sędzia liniowy"],
+		"targetWords": ["football", "corner", "offside", "throw-in", "referee", "goal", "goalkeeper", "striker", "defender", "penalty kick", "free kick", "whistle", "league", "captain", "header", "foul", "linesman"],
+		"srcWordsAfterRemove": ["piłka nożna", "rzut rożny", "rzut z autu", "sędzia", "bramka", "napastnik", "obrońca", "rzut karny", "rzut wolny", "gwizdek", "liga", "główka", "faul", "sędzia liniowy"],
+		"targetWordsAfterRemove": ["football", "corner", "throw-in", "referee", "goal", "striker", "defender", "penalty kick", "free kick", "whistle", "league", "header", "foul", "linesman"],
+		"srcWordsAfterRemoveAndAdd": ["piłka nożna", "rzut rożny", "rzut z autu", "sędzia", "bramka", "napastnik", "obrońca", "rzut karny", "rzut wolny", "gwizdek", "liga", "główka", "faul", "sędzia liniowy", "spalony", "bramkarz", "kapitan"],
+		"targetWordsAfterRemoveAndAdd": ["football", "corner", "throw-in", "referee", "goal", "striker", "defender", "penalty kick", "free kick", "whistle", "league", "header", "foul", "linesman", "offside", "goalkeeper", "captain"],
+		"wordsToRemoveAndAddSrc": ["spalony", "bramkarz", "kapitan"],
+		"wordsToRemoveAndAddTarget": ["offside", "goalkeeper", "captain"]
+	},
+	
+	"AddFreeSet2": {
+		"srcWords": ["piłka nożna", "rzut rożny", "spalony", "rzut z autu", "sędzia", "bramka", "bramkarz", "napastnik", "obrońca", "rzut karny", "rzut wolny", "gwizdek", "liga", "kapitan", "główka", "faul", "sędzia liniowy"],
+		"targetWords": ["football", "corner", "offside", "throw-in", "referee", "goal", "goalkeeper", "striker", "defender", "penalty kick", "free kick", "whistle", "league", "captain", "header", "foul", "linesman"],
+		"setName1": "Football_1",
+		"setName2": "Football",
+		"srcLanguage": "Polish",
+		"targetLanguage": "English"
 	}
 }

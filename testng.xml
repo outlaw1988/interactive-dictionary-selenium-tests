@@ -32,10 +32,40 @@
 	 	  </classes>
 	 </test>
 	 
-	 <test name="LogOut">
+	 <test name="AddCategory">
+	 	<classes>
+	 		<class name="com.interactive.dictionary.tests.AddCategory"></class>
+	 	</classes>
+	 </test>
+
+	<test name="AddSet">
+	 	<classes>
+	 		<class name="com.interactive.dictionary.tests.AddSet"></class>
+	 	</classes>
+	 </test>
+	 
+	 <test name="AddSet2">
+	 	<classes>
+	 		<class name="com.interactive.dictionary.tests.AddSet2"></class>
+	 	</classes>
+	 </test>
+	 
+	 <test name="AddFreeSet">
+	 	<classes>
+	 		<class name="com.interactive.dictionary.tests.AddFreeSet"></class>
+	 	</classes>
+	 </test>
+	 
+	 <test name="AddFreeSet2">
+	 	<classes>
+	 		<class name="com.interactive.dictionary.tests.AddFreeSet2"></class>
+	 	</classes>
+	 </test>
+	 
+	 <!-- <test name="LogOut">
 	 	  <classes>
 	 		  <class name="com.interactive.dictionary.tests.LogOut" />
 	 	  </classes>
-	 </test>
+	 </test> -->
  
 </suite>

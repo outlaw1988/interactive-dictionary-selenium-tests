@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.interactive.dictionary.utils.Utils;
+
 public class CategoriesPage {
 
 	private WebDriver driver;
@@ -30,13 +32,13 @@ public class CategoriesPage {
 		addCategoryEl.click();
 	}
 	
-	public boolean checkSetExist(String name) {
-		String xpath = "//a[contains(text(),'" + name + "')]";
+	public boolean checkCategoryExist(String categoryName) {
+		String xpath = "//span[contains(text(),'" + categoryName + "')]";
 		return driver.findElements(By.xpath(xpath)).size() > 0;
 	}
 	
 	public void clickBox(String categoryName) {
-		String xpath = "//a[contains(text(),'" + categoryName + "')]";
+		String xpath = "//span[contains(text(),'" + categoryName + "')]";
 		driver.findElement(By.xpath(xpath)).click();
 	}
 	

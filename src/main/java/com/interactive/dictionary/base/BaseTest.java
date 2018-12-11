@@ -1,7 +1,10 @@
 package com.interactive.dictionary.base;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -16,26 +19,46 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.interactive.dictionary.reports.ExtentManager;
 import com.interactive.dictionary.utils.ReadConfig;
+import com.interactive.dictionary.utils.Utils;
 
 public class BaseTest {
 	
-	public static WebDriver driver;
-	public static String username;
-	public static String email;
-	public static String password;
+	protected static WebDriver driver;
+	protected static String username;
+	protected static String email;
+	protected static String password;
+	protected static String browser;
 	
-	public static ExtentReports extent;
-	public static ExtentTest pNode;
-	public static ExtentTest test;
+	protected static ExtentReports extent;
+	protected static ExtentTest pNode;
+	protected static ExtentTest test;
 	
 	@SuppressWarnings("rawtypes")
 	public static ThreadLocal parentTest = new ThreadLocal();
 	
 	@BeforeSuite
 	public void setupBefore() {
-		System.setProperty("webdriver.gecko.driver", ReadConfig.getProperty("firefoxDriver"));
 		
-		driver = new FirefoxDriver();
+		browser = ReadConfig.getProperty("browser");
+		
+		if (browser.equals("firefox")) {
+			
+			System.setProperty("webdriver.gecko.driver", ReadConfig.getProperty("firefoxDriver"));
+			driver = new FirefoxDriver();
+			
+		} else if (browser.equals("chrome")) {
+			
+			System.setProperty("webdriver.chrome.driver", ReadConfig.getProperty("chromeDriver"));
+			driver = new ChromeDriver();
+			
+		} else if (browser.equals("opera"))  {
+			
+			System.setProperty("webdriver.opera.driver", ReadConfig.getProperty("operaDriver"));
+			OperaOptions options = new OperaOptions();
+			options.setBinary(ReadConfig.getProperty("operaBinary"));
+			driver = new OperaDriver(options);
+		}
+		
 		driver.manage().window().maximize();
 	}
 	
@@ -65,20 +88,24 @@ public class BaseTest {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + 
 					"Test case FAILED due to", ExtentColor.RED));
 			test.log(Status.FAIL, result.getThrowable());
-			
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			
 			test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + 
 					"Test case PASSED", ExtentColor.GREEN));
-			
 		} else {
 			
 			test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + 
 					"Test case SKIPPED", ExtentColor.YELLOW));
 			test.skip(result.getThrowable());
-			
 		}
 		
+	}
+	
+	@AfterMethod
+	public void captureScreenshot(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			Utils.captureScreenshot(driver, result.getName());
+		}
 	}
 	
 	@AfterSuite

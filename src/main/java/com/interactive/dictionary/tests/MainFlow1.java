@@ -46,7 +46,7 @@ public class MainFlow1 extends BaseTest {
 											"defaultCountdownDuration", "testData"));
 		addCategoryPage.clickAddCategory();
 		
-		Assert.assertTrue(categoriesPage.checkSetExist(Utils.getStringFromJson("MainFlow1", 
+		Assert.assertTrue(categoriesPage.checkCategoryExist(Utils.getStringFromJson("MainFlow1", 
 											"categoryName", "expectedData")));
 		
 		categoriesPage.clickBox(Utils.getStringFromJson("MainFlow1", "categoryName", "testData"));
@@ -58,7 +58,8 @@ public class MainFlow1 extends BaseTest {
 		setPage.clickAddSet();
 		
 		AddSetPage addSetPage = new AddSetPage(driver);
-		addSetPage.setSetName(Utils.getStringFromJson("MainFlow1", "setName", "testData"));
+		String setName = Utils.getStringFromJson("MainFlow1", "setName", "testData");
+		addSetPage.setSetName(setName);
 		
 		srcWords = Utils.getArrayFromJson("MainFlow1", "srcWords", "testData");
 		targetWords = Utils.getArrayFromJson("MainFlow1", "targetWords", "testData");
@@ -69,9 +70,9 @@ public class MainFlow1 extends BaseTest {
 		
 		Assert.assertTrue(setPage.checkSetExist(Utils.getStringFromJson("MainFlow1", 
 												"setName", "expectedData")));
-		Assert.assertEquals(setPage.getWordsNum(), srcWords.size());
+		Assert.assertEquals(setPage.getWordsNum(setName), srcWords.size());
 		
-		setPage.clickBox(Utils.getStringFromJson("MainFlow1", "setName", "testData"));
+		setPage.clickBox(setName);
 	}
 	
 	@Test(priority = 4)
@@ -107,7 +108,7 @@ public class MainFlow1 extends BaseTest {
 	
 	@Test(priority = 6)
 	public void examSummary() {
-		ExamSummaryPage examSummary = new ExamSummaryPage(driver);
+		ExamSummaryPage examSummary = new ExamSummaryPage(driver, browser);
 		Assert.assertEquals(examSummary.getLastResult(), 
 				Utils.getStringFromJson("MainFlow1", "lastResult", "expectedData"));
 		

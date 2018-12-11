@@ -23,29 +23,29 @@ public class FreeSetsPage {
 	}
 	
 	public boolean checkSetExist(String setName) {
-		String xpath = "//a[contains(text(),'" + setName + "')]";
+		String xpath = "//span[contains(text(),'" + setName + "')]";
 		return driver.findElements(By.xpath(xpath)).size() > 0;
 	}
 	
-	public int getWordsNum(String setName) {
-		String xpath = "//*[contains(text(),'" + setName + "')]//parent::div/parent::div/span[1]/span";
-		return Integer.parseInt(driver.findElement(By.xpath(xpath)).getText());
+	public void clickBox(String setName) {
+		String xpath = "//span[contains(text(),'" + setName + "')]";
+		driver.findElement(By.xpath(xpath)).click();
 	}
 	
-	public void clickBox(String setName) {
-		String xpath = "//a[contains(text(),'" + setName + "')]";
-		driver.findElement(By.xpath(xpath)).click();
+	public int getWordsNum(String setName) {
+		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/span[1]/span";
+		return Integer.parseInt(driver.findElement(By.xpath(xpath)).getText());
 	}
 	
 	public String getLastResult(String setName) {
 		
-		String xpath = "//*[contains(text(),'" + setName + "')]//parent::div/parent::div/span[2]/span";
+		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/span[2]/span";
 		
 		return driver.findElement(By.xpath(xpath)).getText();
 	}
 	
 	public String getBestResult(String setName) {
-		String xpath = "//*[contains(text(),'" + setName + "')]//parent::div/parent::div/span[3]/span";
+		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/span[3]/span";
 		
 		return driver.findElement(By.xpath(xpath)).getText();
 	}

@@ -18,5 +18,41 @@
 		"targetLanguage": "English",
 		"lastResult": "75%",
 		"bestResult": "75%"
+	},
+	
+	"AddCategory": {
+		"urlConfirm": "http://localhost:8080/add-category",
+		"errorNameMessageSize": "size must be between 1 and 100",
+		"errorNameMessageExist": "This category already exists",
+		"errorLanguagesDifferent": "Languages must be different",
+		"errorLanguagesNull": "must not be null"
+	},
+	
+	"AddSet": {
+		"targetLabel": "Target language",
+		"sourceLabel": "Source language",
+		"targetLanguage1": "English",
+		"sourceLanguage1": "Polish",
+		"targetLanguage2": "Polish",
+		"sourceLanguage2": "English",
+		"wordsNum": "16"
+	},
+	
+	"AddSet2": {
+		"emptyWordsErrorMessage": "Set must contain at least one word",
+		"setExistsErrorMessage": "This set already exists"
+	},
+	
+	"AddFreeSet": {
+		"targetLabel": "Target language",
+		"sourceLabel": "Source language",
+		"wordsNum": "17",
+	},
+	
+	"AddFreeSet2": {
+		"emptyWordsErrorMessage": "Set must contain at least one word",
+		"setExistsErrorMessage": "This set already exists",
+		"emptyLanguageError": "must not be null",
+		"sameLanguagesError": "Languages must be different"
 	}
 }
