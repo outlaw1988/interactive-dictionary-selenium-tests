@@ -25,15 +25,17 @@ private WebDriver driver;
 	@FindBy(id = "right-label")
 	private WebElement rightLabelEl;
 	
-	String srcLanguageId = "srcLanguage";
+	private final String srcLanguageId = "srcLanguage";
 	
-	String targetLanguageId = "targetLanguage";
+	private final String targetLanguageId = "targetLanguage";
 	
-	String targetSideId = "target-side";
+	private final String targetSideId = "target-side";
 	
-	String countdownDurationId = "countdownDuration";
+	private final String countdownDurationId = "countdownDuration";
 	
-	String fileUploadId = "upload";
+	private final String fileUploadId = "upload";
+	
+	private final String tableXpath = "//table[@id='set_def_table']";
 	
 	@FindBy(id = "add-set")
 	private WebElement addSetButt;
@@ -145,8 +147,8 @@ private WebDriver driver;
 		int size = getTableSize();
 		clickAddWord();
 		
-		String leftFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + (size + 1) + "]/td[1]/input";
-		String rightFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + (size + 1) + "]/td[2]/input";
+		String leftFieldXpath = tableXpath + "/tbody/tr[" + (size + 1) + "]/td[2]/input";
+		String rightFieldXpath = tableXpath + "/tbody/tr[" + (size + 1) + "]/td[3]/input";
 		
 		driver.findElement(By.xpath(leftFieldXpath)).sendKeys(leftWord);
 		driver.findElement(By.xpath(rightFieldXpath)).sendKeys(rightWord);
@@ -160,8 +162,8 @@ private WebDriver driver;
 		int size = getTableSize();
 		
 		for (int i = 2; i <= size; i++) {
-			leftFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[1]/input";
-			rightFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[2]/input";
+			leftFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[2]/input";
+			rightFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[3]/input";
 			
 			WebElement leftField = driver.findElement(By.xpath(leftFieldXpath));
 			WebElement rightField = driver.findElement(By.xpath(rightFieldXpath));
@@ -169,7 +171,7 @@ private WebDriver driver;
 			if (leftField.getAttribute("value").equals(wordToRemove) || 
 				rightField.getAttribute("value").equals(wordToRemove)) {
 				
-				String removeElXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[2]/img";
+				String removeElXpath = tableXpath + "/tbody/tr[" + i + "]/td[3]/img";
 				driver.findElement(By.xpath(removeElXpath)).click();
 				break;
 			}
@@ -186,9 +188,9 @@ private WebDriver driver;
 			String fieldXpath = "";
 			
 			if (side.equals("left")) {
-				fieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[1]/input";
+				fieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[2]/input";
 			} else if (side.equals("right")) {
-				fieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[2]/input";
+				fieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[3]/input";
 			}
 			
 			String wordFromField = driver.findElement(By.xpath(fieldXpath)).getAttribute("value");
@@ -209,8 +211,8 @@ private WebDriver driver;
 		String rightFieldXpath;
 		
 		while(true) {
-			leftFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[1]/input";
-			rightFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[2]/input";
+			leftFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[2]/input";
+			rightFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[3]/input";
 			
 			boolean leftFieldNotExist = driver.findElements(By.xpath(leftFieldXpath)).size() == 0;
 			boolean rightFieldNotExist = driver.findElements(By.xpath(rightFieldXpath)).size() == 0;

@@ -57,6 +57,8 @@ public class AddSetPage {
 	@FindBy(id = "name.errors")
 	private WebElement nameErrorsEl;
 	
+	private final String tableXpath = "//table[@id='set_def_table']";
+	
 	public AddSetPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -136,9 +138,9 @@ public class AddSetPage {
 			String fieldXpath = "";
 			
 			if (side.equals("left")) {
-				fieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[1]/input";
+				fieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[2]/input";
 			} else if (side.equals("right")) {
-				fieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[2]/input";
+				fieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[3]/input";
 			}
 			
 			String wordFromField = driver.findElement(By.xpath(fieldXpath)).getAttribute("value");
@@ -169,8 +171,8 @@ public class AddSetPage {
 		int size = getTableSize();
 		
 		for (int i = 3; i <= size; i++) {
-			leftFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[1]/input";
-			rightFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[2]/input";
+			leftFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[2]/input";
+			rightFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[3]/input";
 			
 			WebElement leftField = driver.findElement(By.xpath(leftFieldXpath));
 			WebElement rightField = driver.findElement(By.xpath(rightFieldXpath));
@@ -178,7 +180,7 @@ public class AddSetPage {
 			if (leftField.getAttribute("value").equals(wordToRemove) || 
 				rightField.getAttribute("value").equals(wordToRemove)) {
 				
-				String removeElXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[2]/img";
+				String removeElXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[3]/img";
 				driver.findElement(By.xpath(removeElXpath)).click();
 				break;
 			}
@@ -190,8 +192,8 @@ public class AddSetPage {
 		int size = getTableSize();
 		clickAddWord();
 		
-		String leftFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + (size + 1) + "]/td[1]/input";
-		String rightFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + (size + 1) + "]/td[2]/input";
+		String leftFieldXpath = tableXpath + "/tbody/tr[" + (size + 1) + "]/td[2]/input";
+		String rightFieldXpath = tableXpath + "/tbody/tr[" + (size + 1) + "]/td[3]/input";
 		
 		driver.findElement(By.xpath(leftFieldXpath)).sendKeys(leftWord);
 		driver.findElement(By.xpath(rightFieldXpath)).sendKeys(rightWord);
@@ -205,8 +207,8 @@ public class AddSetPage {
 		String rightFieldXpath;
 		
 		while(true) {
-			leftFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[1]/input";
-			rightFieldXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[2]/input";
+			leftFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[2]/input";
+			rightFieldXpath = tableXpath + "/tbody/tr[" + i + "]/td[3]/input";
 			
 			boolean leftFieldNotExist = driver.findElements(By.xpath(leftFieldXpath)).size() == 0;
 			boolean rightFieldNotExist = driver.findElements(By.xpath(rightFieldXpath)).size() == 0;
