@@ -1,5 +1,13 @@
 # Changelog - Interactive dictionary selenium tests
 
+## [0.2.1] - 2018-12-11
+
+### Int-dict version
+- 0.5.4
+
+### Changed
+- Bugfixes related to ID version 0.5.4
+
 ## [0.2.0] - 2018-12-11
 
 ### Int-dict version
