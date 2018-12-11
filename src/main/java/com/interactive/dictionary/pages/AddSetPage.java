@@ -74,16 +74,16 @@ public class AddSetPage {
 		int size = words.size();
 		for (int i = 1; i <= size; i++) {
 			
-			if (i > 10) {
-				clickAddWord();
-			}
-			
 			String fieldId = "";
 			
 			if (side.equals("left")) {
 				fieldId = "left_field_" + i;
 			} else if (side.equals("right")) {
 				fieldId = "right_field_" + i;
+			}
+			
+			if (driver.findElements(By.id(fieldId)).size() == 0) {
+				clickAddWord();
 			}
 			
 			driver.findElement(By.id(fieldId)).sendKeys(words.get(i - 1));

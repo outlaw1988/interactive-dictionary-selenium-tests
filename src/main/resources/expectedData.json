@@ -41,5 +41,18 @@
 	"AddSet2": {
 		"emptyWordsErrorMessage": "Set must contain at least one word",
 		"setExistsErrorMessage": "This set already exists"
+	},
+	
+	"AddFreeSet": {
+		"targetLabel": "Target language",
+		"sourceLabel": "Source language",
+		"wordsNum": "17",
+	},
+	
+	"AddFreeSet2": {
+		"emptyWordsErrorMessage": "Set must contain at least one word",
+		"setExistsErrorMessage": "This set already exists",
+		"emptyLanguageError": "must not be null",
+		"sameLanguagesError": "Languages must be different"
 	}
 }

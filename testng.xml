@@ -50,6 +50,18 @@
 	 	</classes>
 	 </test>
 	 
+	 <test name="AddFreeSet">
+	 	<classes>
+	 		<class name="com.interactive.dictionary.tests.AddFreeSet"></class>
+	 	</classes>
+	 </test>
+	 
+	 <test name="AddFreeSet2">
+	 	<classes>
+	 		<class name="com.interactive.dictionary.tests.AddFreeSet2"></class>
+	 	</classes>
+	 </test>
+	 
 	 <!-- <test name="LogOut">
 	 	  <classes>
 	 		  <class name="com.interactive.dictionary.tests.LogOut" />
