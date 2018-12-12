@@ -34,21 +34,21 @@ public class SetPage {
 	
 	public int getWordsNum(String setName) {
 		
-		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/span[1]/span";
+		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/div[4]/span[1]/span";
 		
 		return Integer.parseInt(driver.findElement(By.xpath(xpath)).getText());
 	}
 	
 	public String getLastResult(String setName) {
 		
-		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/span[2]/span";
+		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/div[4]/span[2]/span";
 	
 		return driver.findElement(By.xpath(xpath)).getText();
 	}
 	
 	public String getBestResult(String setName) {
 		
-		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/span[3]/span";
+		String xpath = "//span[contains(text(),'" + setName + "')]//parent::a/parent::div/parent::div/div[4]/span[3]/span";
 		
 		return driver.findElement(By.xpath(xpath)).getText();
 		

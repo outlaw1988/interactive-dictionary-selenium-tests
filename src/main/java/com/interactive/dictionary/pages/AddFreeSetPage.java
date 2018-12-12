@@ -171,7 +171,7 @@ private WebDriver driver;
 			if (leftField.getAttribute("value").equals(wordToRemove) || 
 				rightField.getAttribute("value").equals(wordToRemove)) {
 				
-				String removeElXpath = tableXpath + "/tbody/tr[" + i + "]/td[3]/img";
+				String removeElXpath = tableXpath + "/tbody/tr[" + i + "]/td[4]/img";
 				driver.findElement(By.xpath(removeElXpath)).click();
 				break;
 			}

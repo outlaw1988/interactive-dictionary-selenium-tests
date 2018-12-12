@@ -180,7 +180,7 @@ public class AddSetPage {
 			if (leftField.getAttribute("value").equals(wordToRemove) || 
 				rightField.getAttribute("value").equals(wordToRemove)) {
 				
-				String removeElXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[3]/img";
+				String removeElXpath = "//table[@id='set_def_table']/tbody/tr[" + i + "]/td[4]/img";
 				driver.findElement(By.xpath(removeElXpath)).click();
 				break;
 			}
